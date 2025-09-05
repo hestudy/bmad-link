@@ -1,0 +1,90 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production builds
+dist/
+build/
+*.tgz
+
+# Environment and configuration
+.env
+.env.local
+.env.production
+.env.development
+*.key
+*.pem
+
+# Package managers
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Chrome extension specific
+*.crx
+*.zip
+extension.zip
+
+# Testing
+coverage/
+.nyc_output
+*.lcov
+
+# Turborepo
+.turbo/
+
+# Temporary files
+.tmp/
+.temp/
+
+# AI model cache
+*.model
+*.pb
+model_cache/
+
+# Local database files
+*.sqlite
+*.db
+
+# Backup files
+*.bak
+*.backup
+
+# Runtime files
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+
+# TypeScript
+*.tsbuildinfo
+
+# Mac specific for tar archives
+.DS_Store
+.AppleDouble
+.LSOverride

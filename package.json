@@ -1,0 +1,44 @@
+{
+  "name": "bmad-link",
+  "version": "0.1.0",
+  "description": "BMad Link - AI智能书签管理器",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@8.15.4",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.15.0"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:extension": "turbo run dev --filter=@bmad/extension",
+    "dev:api": "turbo run dev --filter=@bmad/sync-api",
+    "build": "turbo run build",
+    "build:extension": "turbo run build --filter=@bmad/extension",
+    "test": "turbo run test",
+    "test:unit": "turbo run test:unit",
+    "test:e2e": "turbo run test:e2e",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "extension:build": "cd apps/extension && pnpm build",
+    "extension:pack": "cd apps/extension && pnpm pack-extension",
+    "clean": "turbo run clean && rm -rf node_modules .turbo"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitest/ui": "^1.2.2",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "turbo": "^1.12.4",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.3",
+    "vitest": "^1.2.2"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@bmad/extension",
+  "version": "0.1.0",
+  "description": "BMad Link Chrome Extension",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc && vite build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest run",
+    "test:unit": "vitest run --reporter=verbose",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist",
+    "pack-extension": "cd dist && zip -r ../extension.zip ."
+  },
+  "dependencies": {
+    "@bmad/shared": "workspace:*",
+    "@bmad/ui-components": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "@types/node": "^20.11.17",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitest/ui": "^1.2.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.3",
+    "vitest": "^1.2.2"
+  }
+}

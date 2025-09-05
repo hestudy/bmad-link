@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "types": ["chrome", "node", "vite/client"]
+  },
+  "include": [
+    "src/**/*",
+    "../../packages/shared/src",
+    "../../packages/ui-components/src"
+  ]
+}
