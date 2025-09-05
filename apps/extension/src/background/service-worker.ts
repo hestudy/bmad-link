@@ -30,7 +30,7 @@ chrome.action.onClicked.addListener((tab) => {
 });
 
 // 消息传递处理
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
   console.log('Service Worker 收到消息:', request);
   
   if (request.action === 'ping') {
