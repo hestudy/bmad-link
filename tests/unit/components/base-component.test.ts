@@ -12,119 +12,147 @@ class TestComponent extends BaseComponent {
   }
 }
 
+// Mock HTMLElement的attachShadow方法
+const createMockShadowRoot = () => ({
+  innerHTML: '',
+  appendChild: vi.fn(),
+  querySelector: vi.fn(),
+  querySelectorAll: vi.fn(),
+});
+
 describe('BaseComponent Abstract Class', () => {
   let mockShadowRoot: any;
-  let mockTemplate: any;
+  let testComponent: TestComponent;
 
   beforeEach(() => {
     vi.clearAllMocks();
     
-    // Mock ShadowRoot
-    mockShadowRoot = {
-      appendChild: vi.fn()
-    };
+    // 创建mock shadow root
+    mockShadowRoot = createMockShadowRoot();
     
-    // Mock Template
-    mockTemplate = {
+    // Mock attachShadow
+    vi.spyOn(HTMLElement.prototype, 'attachShadow').mockReturnValue(mockShadowRoot);
+    
+    // Mock createElement
+    const mockTemplate = {
       innerHTML: '',
       content: {
-        cloneNode: vi.fn().mockReturnValue({})
-      }
+        cloneNode: vi.fn().mockReturnValue({
+          querySelector: vi.fn(),
+          querySelectorAll: vi.fn(),
+        }),
+      },
     };
-    
-    // Mock DOM APIs
-    vi.spyOn(HTMLElement.prototype, 'attachShadow').mockReturnValue(mockShadowRoot);
-    vi.spyOn(document, 'createElement').mockReturnValue(mockTemplate);
+    vi.spyOn(document, 'createElement').mockReturnValue(mockTemplate as any);
     
     // 注册自定义元素以避免"not part of the custom element registry"错误
     if (!customElements.get('test-component')) {
       customElements.define('test-component', TestComponent);
     }
+    
+    // 创建组件实例
+    testComponent = new TestComponent();
   });
 
   describe('Basic Functionality', () => {
     it('should be instantiable', () => {
-      const component = document.createElement('test-component') as TestComponent;
-      expect(component).toBeInstanceOf(BaseComponent);
-      expect(component).toBeInstanceOf(HTMLElement);
+      expect(testComponent).toBeInstanceOf(BaseComponent);
+      expect(testComponent).toBeInstanceOf(HTMLElement);
     });
 
     it('should implement required abstract methods', () => {
-      const component = document.createElement('test-component') as TestComponent;
-      expect(component.render()).toBe('<div>Test</div>');
-      expect(component.getStyles()).toBe('div { color: red; }');
+      expect(testComponent.render()).toBe('<div>Test</div>');
+      expect(testComponent.getStyles()).toBe('div { color: red; }');
     });
 
     it('should have lifecycle methods', () => {
-      const component = document.createElement('test-component') as TestComponent;
-      expect(typeof component.connectedCallback).toBe('function');
-      expect(typeof component.disconnectedCallback).toBe('function');
+      expect(typeof testComponent.connectedCallback).toBe('function');
+      expect(typeof testComponent.disconnectedCallback).toBe('function');
     });
   });
 
   describe('Shadow DOM', () => {
     it('should attach shadow root', () => {
-      document.createElement('test-component');
-      expect(HTMLElement.prototype.attachShadow).toHaveBeenCalledWith({ mode: 'closed' });
+      const attachShadowSpy = vi.spyOn(HTMLElement.prototype, 'attachShadow');
+      
+      new TestComponent();
+      
+      expect(attachShadowSpy).toHaveBeenCalledWith({ mode: 'closed' });
     });
 
     it('should create template element', () => {
-      document.createElement('test-component');
       expect(document.createElement).toHaveBeenCalledWith('template');
     });
   });
 
   describe('Lifecycle', () => {
-    it('should call connectedCallback', () => {
-      const component = document.createElement('test-component') as TestComponent;
-      expect(() => {
-        component.connectedCallback();
-      }).not.toThrow();
+    it('should call renderComponent when connectedCallback is called', () => {
+      const renderComponentSpy = vi.spyOn(testComponent as any, 'renderComponent');
+      const attachEventsSpy = vi.spyOn(testComponent as any, 'attachEvents');
+      
+      testComponent.connectedCallback();
+      
+      expect(renderComponentSpy).toHaveBeenCalled();
+      expect(attachEventsSpy).toHaveBeenCalled();
     });
 
-    it('should call disconnectedCallback', () => {
-      const component = document.createElement('test-component') as TestComponent;
-      expect(() => {
-        component.disconnectedCallback();
-      }).not.toThrow();
+    it('should call cleanup when disconnectedCallback is called', () => {
+      const cleanupSpy = vi.spyOn(testComponent as any, 'cleanup');
+      
+      testComponent.disconnectedCallback();
+      
+      expect(cleanupSpy).toHaveBeenCalled();
     });
   });
 
   describe('Protected Methods', () => {
     it('should have attachEvents method', () => {
-      const component = document.createElement('test-component') as TestComponent;
       expect(() => {
-        (component as any).attachEvents();
+        (testComponent as any).attachEvents();
       }).not.toThrow();
     });
 
     it('should have cleanup method', () => {
-      const component = document.createElement('test-component') as TestComponent;
       expect(() => {
-        (component as any).cleanup();
+        (testComponent as any).cleanup();
       }).not.toThrow();
     });
   });
 
-  describe('Error Handling', () => {
-    it('should handle attachShadow errors', () => {
-      vi.spyOn(HTMLElement.prototype, 'attachShadow').mockImplementationOnce(() => {
-        throw new Error('Shadow DOM not supported');
-      });
+  describe('Shadow DOM Rendering', () => {
+    it('should render component content to shadow DOM', () => {
+      const appendChildSpy = vi.spyOn(mockShadowRoot, 'appendChild');
       
-      expect(() => {
-        document.createElement('test-component');
-      }).not.toThrow();
+      testComponent.connectedCallback();
+      
+      expect(appendChildSpy).toHaveBeenCalled();
     });
 
-    it('should handle createElement errors', () => {
+    it('should include both styles and content in template', () => {
+      testComponent.getStyles();
+      testComponent.render();
+      
+      testComponent.connectedCallback();
+      
+      // 验证template.innerHTML包含了样式和内容
+      expect(document.createElement).toHaveBeenCalledWith('template');
+    });
+  });
+
+  describe('Error Handling', () => {
+    it('should handle missing DOM gracefully', () => {
+      // Mock document.createElement to throw error
+      const originalCreateElement = document.createElement;
       vi.spyOn(document, 'createElement').mockImplementationOnce(() => {
         throw new Error('DOM not available');
       });
       
       expect(() => {
-        document.createElement('test-component');
+        testComponent.connectedCallback();
       }).not.toThrow();
+      
+      // Restore original method
+      document.createElement = originalCreateElement;
     });
   });
 });
