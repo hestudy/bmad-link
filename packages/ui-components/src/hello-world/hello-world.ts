@@ -4,7 +4,7 @@ export class HelloWorld extends BaseComponent {
   private message = 'Hello World';
   private subtitle = 'BMad Link 智能书签管理器已成功加载';
   
-  getTemplate(): string {
+  render(): string {
     return `
       <div class="hello-container">
         <div class="logo">

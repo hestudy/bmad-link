@@ -11,7 +11,7 @@ export abstract class BaseComponent extends HTMLElement implements IBaseComponen
   }
   
   connectedCallback(): void {
-    this.render();
+    this.renderComponent();
     this.attachEvents();
   }
   
@@ -19,9 +19,9 @@ export abstract class BaseComponent extends HTMLElement implements IBaseComponen
     this.cleanup();
   }
   
-  protected render(): void {
+  protected renderComponent(): void {
     const styles = this.getStyles();
-    const content = this.getTemplate();
+    const content = this.render();
     
     this.template.innerHTML = `
       <style>${styles}</style>
@@ -31,7 +31,7 @@ export abstract class BaseComponent extends HTMLElement implements IBaseComponen
     this.shadow.appendChild(this.template.content.cloneNode(true));
   }
   
-  abstract getTemplate(): string;
+  abstract render(): string;
   abstract getStyles(): string;
   
   protected attachEvents(): void {
