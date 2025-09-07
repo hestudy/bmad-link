@@ -44,10 +44,10 @@ describe('UI Components Package Index Tests', () => {
     });
 
     it('should have correct abstract methods', () => {
-      expect(BaseComponent.prototype.render).toBeDefined();
-      expect(BaseComponent.prototype.getStyles).toBeDefined();
-      expect(typeof BaseComponent.prototype.render).toBe('function');
-      expect(typeof BaseComponent.prototype.getStyles).toBe('function');
+      // 抽象方法在抽象类中不应该有具体实现
+      // 但生命周期方法应该存在
+      expect(BaseComponent.prototype.connectedCallback).toBeDefined();
+      expect(BaseComponent.prototype.disconnectedCallback).toBeDefined();
     });
 
     it('should have lifecycle methods', () => {
@@ -148,16 +148,18 @@ describe('UI Components Package Index Tests', () => {
 
   describe('Type Safety', () => {
     it('should enforce correct types', () => {
-      // Test that TypeScript types are enforced
-      expect(() => {
-        // @ts-expect-error - Testing type safety
-        const invalidComponent = new BaseComponent(); // Should fail - abstract class
-      }).toThrow();
-
+      // 抽象类在JavaScript运行时不会阻止实例化，但TypeScript会在编译时检查
+      // 这里我们测试具体类的正确实例化
       expect(() => {
         const validComponent = new HelloWorld(); // Should work
         expect(validComponent).toBeInstanceOf(HelloWorld);
+        expect(validComponent).toBeInstanceOf(BaseComponent);
       }).not.toThrow();
+      
+      // 测试方法存在性
+      const component = new HelloWorld();
+      expect(typeof component.render).toBe('function');
+      expect(typeof component.getStyles).toBe('function');
     });
 
     it('should support type inference', () => {
@@ -237,15 +239,17 @@ describe('UI Components Package Index Tests', () => {
 
   describe('Error Handling', () => {
     it('should handle invalid usage gracefully', () => {
-      // Test that invalid usage is handled gracefully
-      expect(() => {
-        // @ts-expect-error - Testing error handling
-        const invalidComponent = new BaseComponent(); // Abstract class
-      }).toThrow();
-
+      // 测试组件正常实例化和方法调用
       expect(() => {
         const validComponent = new HelloWorld();
         expect(validComponent).toBeInstanceOf(HelloWorld);
+        
+        // 测试方法调用不会抛出异常
+        const html = validComponent.render();
+        const styles = validComponent.getStyles();
+        
+        expect(typeof html).toBe('string');
+        expect(typeof styles).toBe('string');
       }).not.toThrow();
     });
 
@@ -293,10 +297,13 @@ describe('UI Components Package Index Tests', () => {
     it('should not have circular dependencies', () => {
       // Test that there are no circular dependencies
       expect(() => {
-        // 模拟导入，由于我们已经导入了，直接使用即可
-        const { BaseComponent, HelloWorld } = { BaseComponent, HelloWorld };
+        // 简单测试模块导出是否正常
         expect(BaseComponent).toBeDefined();
         expect(HelloWorld).toBeDefined();
+        
+        // 测试组件可以正常实例化
+        const component = new HelloWorld();
+        expect(component).toBeInstanceOf(BaseComponent);
       }).not.toThrow();
     });
   });

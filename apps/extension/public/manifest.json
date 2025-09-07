@@ -3,11 +3,7 @@
   "name": "BMad Link - 智能书签管理器",
   "version": "0.1.0",
   "description": "AI驱动的智能书签管理Chrome扩展，支持语义搜索和一键收藏",
-  "permissions": [
-    "activeTab",
-    "storage",
-    "contextMenus"
-  ],
+  "permissions": ["activeTab", "storage", "contextMenus"],
   "background": {
     "service_worker": "background.js"
   },
@@ -29,14 +25,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content-script.js"]
+      "matches": ["https://*/*", "http://localhost:*/*", "http://127.0.0.1:*/*"],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
       "resources": ["popup.html"],
-      "matches": ["<all_urls>"]
+      "matches": ["https://*/*", "http://localhost:*/*", "http://127.0.0.1:*/*"]
     }
   ]
 }

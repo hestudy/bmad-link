@@ -1,8 +1,8 @@
 import { BaseComponent } from '../base/base-component';
 
 export class HelloWorld extends BaseComponent {
-  private message = 'Hello World';
-  private subtitle = 'BMad Link 智能书签管理器已成功加载';
+  private readonly message = 'Hello World';
+  private readonly subtitle = 'BMad Link 智能书签管理器已成功加载';
   
   render(): string {
     return `

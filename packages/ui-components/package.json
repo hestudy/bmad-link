@@ -18,7 +18,8 @@
     "build": "tsc && vite build",
     "dev": "vite build --watch",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "lint": "eslint src",
+    "test": "cd ../.. && pnpm vitest run tests/unit/ui-components tests/unit/components",
     "clean": "rm -rf dist"
   },
   "dependencies": {

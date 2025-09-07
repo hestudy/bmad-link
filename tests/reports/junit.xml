@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="357" failures="21" errors="0" time="0.897">
+    <testsuite name="tests/unit/components/base-component.test.ts" timestamp="2025-09-07T02:05:51.665Z" hostname="MacBook-Air.local" tests="12" failures="0" errors="0" skipped="0" time="0.004">
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Basic Functionality &gt; should be instantiable" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Basic Functionality &gt; should implement required abstract methods" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Basic Functionality &gt; should have lifecycle methods" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Shadow DOM &gt; should attach shadow root" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Shadow DOM &gt; should create template element" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Lifecycle &gt; should call renderComponent when connectedCallback is called" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Lifecycle &gt; should call cleanup when disconnectedCallback is called" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Protected Methods &gt; should have attachEvents method" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Protected Methods &gt; should have cleanup method" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Shadow DOM Rendering &gt; should render component content to shadow DOM" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Shadow DOM Rendering &gt; should include both styles and content in template" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/base-component.test.ts" name="BaseComponent Abstract Class &gt; Error Handling &gt; should handle missing DOM gracefully" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/components/hello-world.test.ts" timestamp="2025-09-07T02:05:51.718Z" hostname="MacBook-Air.local" tests="25" failures="0" errors="0" skipped="0" time="0.006">
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Component Initialization &gt; should create HelloWorld component instance" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Component Initialization &gt; should have private properties with correct default values" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; render() method &gt; should return correct HTML structure" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; render() method &gt; should include all required CSS classes" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; render() method &gt; should have proper semantic HTML structure" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; getStyles() method &gt; should return CSS styles as string" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; getStyles() method &gt; should include all required CSS selectors" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; getStyles() method &gt; should include key styling properties" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; getStyles() method &gt; should include responsive design styles" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; getStyles() method &gt; should include animation keyframes" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; getStyles() method &gt; should include gradient text styling" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Lifecycle Methods &gt; should call renderComponent when connectedCallback is called" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Lifecycle Methods &gt; should call cleanup when disconnectedCallback is called" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Shadow DOM Rendering &gt; should attach shadow root with closed mode" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Shadow DOM Rendering &gt; should render component content to shadow DOM" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Shadow DOM Rendering &gt; should include both styles and content in template" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Component Integration &gt; should be registered as custom element" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Component Integration &gt; should extend BaseComponent" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Component Integration &gt; should have required methods from BaseComponent interface" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Content Accuracy &gt; should display correct message text" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Content Accuracy &gt; should include bookmark emoji in logo" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Content Accuracy &gt; should have proper status indicator styling" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Error Handling &gt; should handle missing DOM gracefully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Performance Considerations &gt; should generate styles only once per instance" time="0">
+        </testcase>
+        <testcase classname="tests/unit/components/hello-world.test.ts" name="HelloWorld Component &gt; Performance Considerations &gt; should generate render output only once per call" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/code-quality/code-quality.test.ts" timestamp="2025-09-07T02:05:51.741Z" hostname="MacBook-Air.local" tests="32" failures="0" errors="0" skipped="0" time="0.009">
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; ESLint Configuration Validation &gt; should validate root ESLint configuration exists" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; ESLint Configuration Validation &gt; should validate ESLint configuration contains required properties" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; ESLint Configuration Validation &gt; should validate ESLint has TypeScript-specific configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; ESLint Configuration Validation &gt; should validate ESLint ignore patterns are present" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Prettier Configuration Validation &gt; should validate Prettier configuration exists" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Prettier Configuration Validation &gt; should validate Prettier configuration has required properties" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Prettier Configuration Validation &gt; should validate Prettier configuration values are reasonable" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Package Scripts Validation &gt; should validate lint script exists in extension package.json" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Package Scripts Validation &gt; should validate format script exists in root package.json" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Package Scripts Validation &gt; should validate lint script targets TypeScript files" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Dependencies Validation &gt; should validate ESLint dependencies are installed" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Dependencies Validation &gt; should validate Prettier dependencies are installed" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Dependencies Validation &gt; should validate dependency versions are reasonable" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Execution Validation &gt; should execute ESLint successfully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Execution Validation &gt; should execute Prettier check successfully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Execution Validation &gt; should execute Prettier write successfully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Execution Validation &gt; should handle ESLint errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Execution Validation &gt; should handle Prettier formatting errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Rules Validation &gt; should validate ESLint content contains TypeScript rules" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Rules Validation &gt; should validate ESLint has strict rules enabled" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Code Quality Rules Validation &gt; should validate ESLint has proper environment configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; File Structure Validation &gt; should validate ESLint configuration files exist in expected locations" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; File Structure Validation &gt; should validate source code directories exist for linting" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; File Structure Validation &gt; should validate ignore patterns are effective" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Integration Validation &gt; should validate ESLint and Prettier configurations are compatible" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Integration Validation &gt; should validate TypeScript integration is properly configured" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Error Handling and Edge Cases &gt; should handle missing ESLint configuration gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Error Handling and Edge Cases &gt; should handle missing Prettier configuration gracefully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Error Handling and Edge Cases &gt; should handle invalid ESLint configuration gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Error Handling and Edge Cases &gt; should handle invalid Prettier configuration gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Error Handling and Edge Cases &gt; should handle missing package.json scripts gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/code-quality/code-quality.test.ts" name="Code Quality Validation Tests &gt; Error Handling and Edge Cases &gt; should handle missing dependencies gracefully" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/content-scripts/content-script.test.ts" timestamp="2025-09-07T02:05:51.753Z" hostname="MacBook-Air.local" tests="36" failures="4" errors="0" skipped="0" time="0.023">
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Content Script Initialization &gt; should log content script loading with URL" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Content Script Initialization &gt; should handle different page URLs" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Content Script Initialization &gt; should handle complex URLs" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; DOM Ready State Handling &gt; should add DOMContentLoaded listener when document is loading" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; DOM Ready State Handling &gt; should call initContentScript directly when document is already loaded" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; DOM Ready State Handling &gt; should handle interactive ready state" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; DOM Ready State Handling &gt; should test all possible ready states" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; DOM Content Loaded Handler &gt; should call initContentScript when DOMContentLoaded fires" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; DOM Content Loaded Handler &gt; should handle DOMContentLoaded event errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; DOM Content Loaded Handler &gt; should only initialize once when DOM loads" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Service Worker Communication &gt; should send ping message to service worker" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Service Worker Communication &gt; should handle successful service worker response" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Service Worker Communication &gt; should handle service worker communication errors" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Service Worker Communication &gt; should handle service worker timeout" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Service Worker Communication &gt; should handle malformed service worker responses" time="0.006">
+            <failure message="expected &quot;spy&quot; to be called with arguments: [ &apos;Service Worker 响应:&apos;, null ]
+
+Received: 
+
+  1st spy call:
+
+  Array [
+-   &quot;Service Worker 响应:&quot;,
+-   null,
++   &quot;BMad Link Content Script 加载完成&quot;,
++   &quot;https://example.com&quot;,
+  ]
+
+  2nd spy call:
+
+  Array [
+-   &quot;Service Worker 响应:&quot;,
+-   null,
++   &quot;BMad Link Content Script 初始化&quot;,
+  ]
+
+
+Number of calls: 2
+" type="AssertionError">
+AssertionError: expected &quot;spy&quot; to be called with arguments: [ &apos;Service Worker 响应:&apos;, null ]
+
+Received: 
+
+  1st spy call:
+
+  Array [
+-   &quot;Service Worker 响应:&quot;,
+-   null,
++   &quot;BMad Link Content Script 加载完成&quot;,
++   &quot;https://example.com&quot;,
+  ]
+
+  2nd spy call:
+
+  Array [
+-   &quot;Service Worker 响应:&quot;,
+-   null,
++   &quot;BMad Link Content Script 初始化&quot;,
+  ]
+
+
+Number of calls: 2
+
+ ❯ tests/unit/content-scripts/content-script.test.ts:294:31
+ ❯ tests/unit/content-scripts/content-script.test.ts:284:26
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Message Content Validation &gt; should send correctly formatted ping message" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Message Content Validation &gt; should handle different message types" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Error Handling &gt; should handle chrome runtime unavailability" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Error Handling &gt; should handle document unavailability" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Error Handling &gt; should handle window unavailability" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Error Handling &gt; should handle console logging errors" time="0.002">
+            <failure message="expected [Function] to not throw an error but &apos;Error: Console logging failed&apos; was thrown" type="AssertionError">
+AssertionError: expected [Function] to not throw an error but &apos;Error: Console logging failed&apos; was thrown
+
+- Expected: 
+undefined
+
++ Received: 
+&quot;Error: Console logging failed&quot;
+
+ ❯ tests/unit/content-scripts/content-script.test.ts:369:14
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Error Handling &gt; should handle event listener errors" time="0.001">
+            <failure message="expected [Function] to not throw an error but &apos;Error: Event listener failed&apos; was thrown" type="AssertionError">
+AssertionError: expected [Function] to not throw an error but &apos;Error: Event listener failed&apos; was thrown
+
+- Expected: 
+undefined
+
++ Received: 
+&quot;Error: Event listener failed&quot;
+
+ ❯ tests/unit/content-scripts/content-script.test.ts:380:14
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Browser Compatibility &gt; should work in different browser environments" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Browser Compatibility &gt; should handle different document modes" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Performance Considerations &gt; should minimize DOM operations" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Performance Considerations &gt; should avoid memory leaks" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Performance Considerations &gt; should use efficient event handling" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Security Considerations &gt; should not access sensitive DOM elements" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Security Considerations &gt; should not modify page content" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Security Considerations &gt; should handle cross-origin security restrictions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Integration Testing &gt; should integrate properly with Chrome extension APIs" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Integration Testing &gt; should handle service worker restart scenarios" time="0.003">
+            <failure message="expected &quot;spy&quot; to be called with arguments: [ &apos;通信失败:&apos;, Any&lt;Error&gt; ]
+
+Received: 
+
+
+
+Number of calls: 0
+" type="AssertionError">
+AssertionError: expected &quot;spy&quot; to be called with arguments: [ &apos;通信失败:&apos;, Any&lt;Error&gt; ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+ ❯ tests/unit/content-scripts/content-script.test.ts:518:31
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Integration Testing &gt; should handle extension reload scenarios" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Content Script Lifecycle &gt; should handle content script injection timing" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Content Script Lifecycle &gt; should handle content script removal" time="0">
+        </testcase>
+        <testcase classname="tests/unit/content-scripts/content-script.test.ts" name="Content Script Unit Tests &gt; Content Script Lifecycle &gt; should handle multiple content script instances" time="0.001">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/e2e/extension-loading.test.ts" timestamp="2025-09-07T02:05:51.762Z" hostname="MacBook-Air.local" tests="47" failures="0" errors="0" skipped="0" time="0.011">
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should validate extension manifest is valid for Chrome Web Store" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should validate all required files exist in extension package" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should validate popup HTML structure and content" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should validate service worker background script loads correctly" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should validate content script injection works" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should validate icon files are properly sized and formatted" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should validate extension package can be built and packaged" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Loading Validation &gt; should handle extension loading errors gracefully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate extension ID is properly assigned" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate runtime getURL method works correctly" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate manifest can be retrieved via runtime API" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate extension can send messages" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate extension can receive messages" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate storage API is available" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate tabs API is available" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Chrome Extension Runtime Validation &gt; should validate context menus API is available" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Functional Testing &gt; should validate popup can be opened and displayed" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Functional Testing &gt; should validate context menu can be created" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Functional Testing &gt; should validate storage operations work correctly" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Functional Testing &gt; should validate content script injection on page load" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Functional Testing &gt; should validate extension permissions are granted" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Functional Testing &gt; should validate extension can handle runtime events" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Functional Testing &gt; should validate extension can communicate between components" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Performance and Error Handling &gt; should validate extension loads within acceptable time" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Performance and Error Handling &gt; should validate extension handles storage quota limits" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Performance and Error Handling &gt; should validate extension handles network errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Performance and Error Handling &gt; should validate extension recovers from service worker restart" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Performance and Error Handling &gt; should validate extension handles invalid user input" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Performance and Error Handling &gt; should validate extension memory usage is reasonable" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Performance and Error Handling &gt; should validate extension handles Chrome updates gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Uninstallation and Cleanup &gt; should validate extension can be uninstalled cleanly" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Uninstallation and Cleanup &gt; should validate storage is cleared on uninstall" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Uninstallation and Cleanup &gt; should validate context menus are removed on uninstall" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Uninstallation and Cleanup &gt; should validate temporary files are cleaned up" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Extension Uninstallation and Cleanup &gt; should validate event listeners are removed on cleanup" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Cross-Browser Compatibility &gt; should validate extension works in different Chrome channels" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Cross-Browser Compatibility &gt; should validate extension handles different Chrome versions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Cross-Browser Compatibility &gt; should validate extension works on different operating systems" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Security and Privacy Validation &gt; should validate extension does not access sensitive data without permission" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Security and Privacy Validation &gt; should validate extension data is encrypted in storage" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Security and Privacy Validation &gt; should validate extension does not leak data to external servers" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Security and Privacy Validation &gt; should validate extension follows content security policy" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Security and Privacy Validation &gt; should validate extension handles user privacy preferences" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Integration Testing &gt; should validate extension integrates with Chrome DevTools" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Integration Testing &gt; should validate extension works with other Chrome extensions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Integration Testing &gt; should validate extension responds to Chrome policy changes" time="0">
+        </testcase>
+        <testcase classname="tests/unit/e2e/extension-loading.test.ts" name="Chrome Extension Loading E2E Tests &gt; Integration Testing &gt; should validate extension can be updated seamlessly" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/git-repository/git-repository.test.ts" timestamp="2025-09-07T02:05:51.766Z" hostname="MacBook-Air.local" tests="49" failures="0" errors="0" skipped="0" time="0.012">
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate Git repository is initialized" time="0.002">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate Git remote repository configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate Git branch exists and is tracking remote" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate Git commit history exists" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate Git commit message format" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate .gitignore file exists and contains essential patterns" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate .gitignore contains Chrome extension specific patterns" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should validate .gitignore contains testing and build artifacts" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Repository Configuration &gt; should handle Git repository validation errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; README Documentation &gt; should validate README.md file exists" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; README Documentation &gt; should validate README.md contains essential sections" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; README Documentation &gt; should validate README.md contains technology stack information" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; README Documentation &gt; should validate README.md contains project structure overview" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; README Documentation &gt; should validate README.md contains development commands" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; README Documentation &gt; should validate README.md contains deployment information" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; README Documentation &gt; should validate README.md contains core features description" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate docs directory exists" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate essential documentation files exist" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate architecture documentation exists" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate PRD documentation exists" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate stories documentation exists" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate QA documentation exists" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate documentation content quality" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should validate deployment documentation contains setup instructions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Structure &gt; should handle missing documentation files gracefully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Workflow Validation &gt; should validate Git working directory is clean" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Workflow Validation &gt; should validate Git hooks are configured" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Workflow Validation &gt; should validate Git commit signing configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Workflow Validation &gt; should validate Git branch protection rules" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Workflow Validation &gt; should validate Git LFS configuration for large files" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Git Workflow Validation &gt; should handle Git workflow validation errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Quality Validation &gt; should validate documentation files are properly formatted" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Quality Validation &gt; should validate documentation contains proper links" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Quality Validation &gt; should validate documentation contains code examples" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Quality Validation &gt; should validate documentation files have consistent naming" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Quality Validation &gt; should validate documentation is organized in logical directories" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Documentation Quality Validation &gt; should handle documentation quality validation errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Integration Validation &gt; should validate Git repository integrates with documentation structure" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Integration Validation &gt; should validate documentation references are tracked in Git" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Integration Validation &gt; should validate Git commit messages reference documentation updates" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Integration Validation &gt; should validate Git repository size is reasonable for documentation" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Integration Validation &gt; should validate Git repository has proper documentation branches" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Integration Validation &gt; should handle integration validation errors gracefully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Security and Compliance Validation &gt; should validate Git repository has no sensitive information" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Security and Compliance Validation &gt; should validate documentation does not contain hardcoded secrets" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Security and Compliance Validation &gt; should validate Git repository access permissions" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Security and Compliance Validation &gt; should validate documentation has proper license information" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Security and Compliance Validation &gt; should validate Git repository has proper contribution guidelines" time="0">
+        </testcase>
+        <testcase classname="tests/unit/git-repository/git-repository.test.ts" name="Git Repository and Documentation Validation Tests &gt; Security and Compliance Validation &gt; should handle security validation errors gracefully" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/popup/popup.test.ts" timestamp="2025-09-07T02:05:51.769Z" hostname="MacBook-Air.local" tests="19" failures="0" errors="0" skipped="0" time="0.005">
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Popup Module Loading &gt; should be able to mock UI components" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Popup Module Loading &gt; should support ES modules structure" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; DOM Content Loaded Event &gt; should register DOMContentLoaded listener" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; DOM Content Loaded Event &gt; should execute DOMContentLoaded handler" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Chrome Runtime Communication &gt; should send message to service worker" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Chrome Runtime Communication &gt; should handle successful response" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Chrome Runtime Communication &gt; should handle communication errors" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Complete Popup Flow &gt; should execute complete popup initialization flow" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Complete Popup Flow &gt; should handle multiple response types" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Error Handling &gt; should handle missing chrome runtime" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Error Handling &gt; should handle DOM API unavailability" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Security Validation &gt; should use safe message format" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Security Validation &gt; should not expose sensitive data" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Performance Considerations &gt; should register minimal event listeners" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Performance Considerations &gt; should use efficient communication patterns" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Browser Compatibility &gt; should work with standard Chrome extension APIs" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Browser Compatibility &gt; should handle different Chrome versions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Integration Testing &gt; should integrate popup components correctly" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/popup/popup.test.ts" name="Popup Script Unit Tests &gt; Integration Testing &gt; should handle popup lifecycle correctly" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/service-worker/service-worker.test.ts" timestamp="2025-09-07T02:05:51.770Z" hostname="MacBook-Air.local" tests="34" failures="17" errors="0" skipped="0" time="0.017">
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Initialization &gt; should log service worker startup" time="0.002">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Initialization &gt; should set up runtime onInstalled listener" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Initialization &gt; should set up context menus onClicked listener" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Initialization &gt; should set up action onClicked listener" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Initialization &gt; should set up runtime onMessage listener" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Extension Installation Handler &gt; should handle extension installation" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Extension Installation Handler &gt; should handle extension update" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Extension Installation Handler &gt; should create context menu on installation" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Extension Installation Handler &gt; should handle chrome context menus API errors gracefully" time="0.004">
+            <failure message="expected [Function] to not throw an error but &apos;Error: Context menus API not available&apos; was thrown" type="AssertionError">
+AssertionError: expected [Function] to not throw an error but &apos;Error: Context menus API not available&apos; was thrown
+
+- Expected: 
+undefined
+
++ Received: 
+&quot;Error: Context menus API not available&quot;
+
+ ❯ tests/unit/service-worker/service-worker.test.ts:171:14
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Context Menu Handler &gt; should handle context menu click for page context" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Context Menu Handler &gt; should handle context menu click for link context" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Context Menu Handler &gt; should ignore context menu clicks with different menuItemId" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Context Menu Handler &gt; should handle context menu click without tab ID" time="0.001">
+            <failure message="expected &quot;spy&quot; to not be called at all, but actually been called 1 times
+
+Received: 
+
+  1st spy call:
+
+    Array [
+      &quot;BMad Link Service Worker 启动&quot;,
+    ]
+
+
+Number of calls: 1
+" type="AssertionError">
+AssertionError: expected &quot;spy&quot; to not be called at all, but actually been called 1 times
+
+Received: 
+
+  1st spy call:
+
+    Array [
+      &quot;BMad Link Service Worker 启动&quot;,
+    ]
+
+
+Number of calls: 1
+
+ ❯ tests/unit/service-worker/service-worker.test.ts:265:33
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Context Menu Handler &gt; should handle context menu click errors gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Extension Action Handler &gt; should handle extension icon click" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Extension Action Handler &gt; should handle action click with minimal tab info" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Extension Action Handler &gt; should handle action click without tab" time="0">
+            <failure message="Cannot read properties of null (reading &apos;url&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;url&apos;)
+ ❯ eval tests/unit/service-worker/service-worker.test.ts:324:7
+ ❯ tests/unit/service-worker/service-worker.test.ts:330:7
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Message Handler &gt; should handle ping message" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Message Handler &gt; should handle unknown message actions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Message Handler &gt; should handle message without action" time="0">
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Message Handler &gt; should handle message sending errors gracefully" time="0.001">
+            <failure message="expected [Function] to not throw an error but &apos;Error: Response failed&apos; was thrown" type="AssertionError">
+AssertionError: expected [Function] to not throw an error but &apos;Error: Response failed&apos; was thrown
+
+- Expected: 
+undefined
+
++ Received: 
+&quot;Error: Response failed&quot;
+
+ ❯ tests/unit/service-worker/service-worker.test.ts:425:14
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Message Handler &gt; should handle malformed messages" time="0">
+            <failure message="expected [Function] to not throw an error but &apos;TypeError: Cannot read properties of …&apos; was thrown" type="AssertionError">
+AssertionError: expected [Function] to not throw an error but &apos;TypeError: Cannot read properties of …&apos; was thrown
+
+- Expected: 
+undefined
+
++ Received: 
+&quot;TypeError: Cannot read properties of null (reading &apos;action&apos;)&quot;
+
+ ❯ tests/unit/service-worker/service-worker.test.ts:441:16
+ ❯ tests/unit/service-worker/service-worker.test.ts:435:25
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Error Handling &gt; should handle chrome API unavailability" time="0">
+            <failure message="expected [Function] to not throw an error but &apos;TypeError: Cannot read properties of …&apos; was thrown" type="AssertionError">
+AssertionError: expected [Function] to not throw an error but &apos;TypeError: Cannot read properties of …&apos; was thrown
+
+- Expected: 
+undefined
+
++ Received: 
+&quot;TypeError: Cannot read properties of undefined (reading &apos;runtime&apos;)&quot;
+
+ ❯ tests/unit/service-worker/service-worker.test.ts:454:14
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Error Handling &gt; should handle partial chrome API availability" time="0.001">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Error Handling &gt; should handle console logging errors" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Performance Considerations &gt; should minimize console logging in production" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Performance Considerations &gt; should use efficient event listener patterns" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Performance Considerations &gt; should avoid memory leaks by not creating circular references" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Integration with Chrome APIs &gt; should use correct Chrome API method signatures" time="0.001">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Integration with Chrome APIs &gt; should handle Chrome API async operations correctly" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Integration with Chrome APIs &gt; should respect Chrome API permissions" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Lifecycle &gt; should handle service worker restart" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Lifecycle &gt; should handle multiple event registrations" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+        <testcase classname="tests/unit/service-worker/service-worker.test.ts" name="Service Worker Unit Tests &gt; Service Worker Lifecycle &gt; should handle service worker termination" time="0">
+            <failure message="Cannot read properties of undefined (reading &apos;tabs&apos;)" type="TypeError">
+TypeError: Cannot read properties of undefined (reading &apos;tabs&apos;)
+ ❯ tests/unit/service-worker/service-worker.test.ts:69:16
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/manifest/manifest-validation.test.ts" timestamp="2025-09-07T02:05:51.775Z" hostname="MacBook-Air.local" tests="29" failures="0" errors="0" skipped="0" time="0.01">
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Manifest V3 Compliance &gt; should validate manifest_version is 3" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Manifest V3 Compliance &gt; should validate required fields are present" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Manifest V3 Compliance &gt; should validate name field length and format" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Manifest V3 Compliance &gt; should validate version field format" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Permissions Validation &gt; should validate permissions are declared as array" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Permissions Validation &gt; should validate permissions are legitimate and not excessive" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Permissions Validation &gt; should validate no duplicate permissions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Background Service Worker Validation &gt; should validate background service worker configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Background Service Worker Validation &gt; should validate background script file exists" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Action Configuration Validation &gt; should validate action configuration is present" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Action Configuration Validation &gt; should validate popup file exists" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Action Configuration Validation &gt; should validate action icon configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Icons Configuration Validation &gt; should validate icons section is present" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Icons Configuration Validation &gt; should validate required icon sizes are present" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Icons Configuration Validation &gt; should validate icon files exist" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Content Scripts Validation &gt; should validate content scripts configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Content Scripts Validation &gt; should validate content script matches patterns" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Content Scripts Validation &gt; should validate content script files exist" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Web Accessible Resources Validation &gt; should validate web accessible resources configuration" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Web Accessible Resources Validation &gt; should validate web accessible resources exist" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Security Validation &gt; should validate no dangerous permissions" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Security Validation &gt; should validate content scripts are not overly broad" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Security Validation &gt; should validate CSP (Content Security Policy) if present" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Build Output Validation &gt; should validate manifest is copied to build output" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Build Output Validation &gt; should validate manifest structure consistency" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Error Handling and Edge Cases &gt; should handle missing manifest file gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Error Handling and Edge Cases &gt; should handle invalid JSON gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Error Handling and Edge Cases &gt; should handle missing optional fields gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/manifest/manifest-validation.test.ts" name="Manifest V3 Validation Tests &gt; Error Handling and Edge Cases &gt; should validate version format edge cases" time="0.001">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/shared/shared.test.ts" timestamp="2025-09-07T02:05:51.777Z" hostname="MacBook-Air.local" tests="37" failures="0" errors="0" skipped="0" time="0.006">
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; BaseComponent Interface &gt; should define BaseComponent interface correctly" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; BaseComponent Interface &gt; should have render method definition" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; BaseComponent Interface &gt; should have getStyles method definition" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; BaseComponent Interface &gt; should be usable as a TypeScript type" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; BaseComponent Interface &gt; should enforce method signatures" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; Config Interface &gt; should define Config interface correctly" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; Config Interface &gt; should have correct property types" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; Config Interface &gt; should allow optional properties to be undefined" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; Config Interface &gt; should validate config structure" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; Config Interface &gt; should handle version format validation" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Definitions &gt; Config Interface &gt; should handle app name validation" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_NAME &gt; should export APP_NAME constant" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_NAME &gt; should have correct app name value" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_NAME &gt; should be immutable" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_NAME &gt; should be usable in string operations" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_VERSION &gt; should export APP_VERSION constant" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_VERSION &gt; should have correct version format" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_VERSION &gt; should follow semantic versioning" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_VERSION &gt; should be immutable" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Constants &gt; APP_VERSION &gt; should be usable in version comparisons" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Integration Tests &gt; should work together in a real component" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Integration Tests &gt; should handle different config scenarios" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Safety &gt; should enforce type checking" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Safety &gt; should handle optional properties correctly" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Type Safety &gt; should support type inference" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Export Validation &gt; should export all expected members" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Export Validation &gt; should not export unexpected members" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Export Validation &gt; should maintain export consistency" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Runtime Behavior &gt; should maintain constant values at runtime" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Runtime Behavior &gt; should allow interface implementation at runtime" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Runtime Behavior &gt; should handle runtime type checks" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Error Handling &gt; should handle invalid config objects gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Error Handling &gt; should handle missing properties gracefully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Error Handling &gt; should handle type mismatches gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Performance Considerations &gt; should have minimal memory footprint" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Performance Considerations &gt; should allow tree shaking" time="0">
+        </testcase>
+        <testcase classname="tests/unit/shared/shared.test.ts" name="Shared Package Tests &gt; Performance Considerations &gt; should not have circular dependencies" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/ui-components/ui-components-index.test.ts" timestamp="2025-09-07T02:05:51.779Z" hostname="MacBook-Air.local" tests="37" failures="0" errors="0" skipped="0" time="0.006">
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Export Validation &gt; should export BaseComponent class" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Export Validation &gt; should export HelloWorld class" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Export Validation &gt; should export only expected members" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Export Validation &gt; should maintain export consistency" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; BaseComponent Export &gt; should be the same class as the original" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; BaseComponent Export &gt; should have correct abstract methods" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; BaseComponent Export &gt; should have lifecycle methods" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; BaseComponent Export &gt; should be extendable" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; HelloWorld Export &gt; should be the same class as the original" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; HelloWorld Export &gt; should extend BaseComponent" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; HelloWorld Export &gt; should have required methods" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; HelloWorld Export &gt; should produce expected output" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; HelloWorld Export &gt; should be registered as custom element" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Integration Tests &gt; should work together in a real application" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Integration Tests &gt; should allow creating multiple instances" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Integration Tests &gt; should maintain separate state for each instance" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Type Safety &gt; should enforce correct types" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Type Safety &gt; should support type inference" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Type Safety &gt; should handle interface implementation" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Import Behavior &gt; should support named imports" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Import Behavior &gt; should support default imports" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Import Behavior &gt; should support mixed imports" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Runtime Behavior &gt; should work at runtime" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Runtime Behavior &gt; should handle multiple imports" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Runtime Behavior &gt; should maintain class identity" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Error Handling &gt; should handle invalid usage gracefully" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Error Handling &gt; should handle missing methods gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Error Handling &gt; should handle invalid arguments gracefully" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Performance Considerations &gt; should have minimal memory footprint" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Performance Considerations &gt; should allow tree shaking" time="0.001">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Performance Considerations &gt; should not have circular dependencies" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Custom Element Registration &gt; should register HelloWorld as custom element" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Custom Element Registration &gt; should allow creating custom elements" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Custom Element Registration &gt; should handle custom element lifecycle" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Module System Compatibility &gt; should work with ES modules" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Module System Compatibility &gt; should work with CommonJS" time="0">
+        </testcase>
+        <testcase classname="tests/unit/ui-components/ui-components-index.test.ts" name="UI Components Package Index Tests &gt; Module System Compatibility &gt; should work with mixed module systems" time="0">
+        </testcase>
+    </testsuite>
+</testsuites>

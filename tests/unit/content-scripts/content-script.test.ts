@@ -6,9 +6,9 @@ const mockChromeRuntime = {
   sendMessage: vi.fn(),
   onMessage: {
     addListener: vi.fn(),
-    removeListener: vi.fn()
+    removeListener: vi.fn(),
   },
-  lastError: null as any
+  lastError: null as any,
 };
 
 // Mock DOM APIs
@@ -19,45 +19,56 @@ const mockDocument = {
   createElement: vi.fn(),
   querySelector: vi.fn(),
   querySelectorAll: vi.fn(),
-  getElementsByTagName: vi.fn()
+  getElementsByTagName: vi.fn(),
 };
 
 const mockWindow = {
   location: {
-    href: 'https://example.com'
-  }
+    href: 'https://example.com',
+  },
 };
 
 // Mock global objects
 global.document = mockDocument as any;
 global.window = mockWindow as any;
 global.chrome = {
-  runtime: mockChromeRuntime
+  runtime: mockChromeRuntime,
 } as any;
 
 // Content script functions to test (直接定义函数而不是使用eval)
 function loadContentScript(): void {
-  console.log('BMad Link Content Script 加载完成', window.location.href);
+  if (typeof window !== 'undefined' && window.location) {
+    console.log('BMad Link Content Script 加载完成', window.location.href);
+  } else {
+    console.log('BMad Link Content Script 加载完成', 'unknown-url');
+  }
 
   // 页面加载完成后的处理
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initContentScript);
+  if (typeof document !== 'undefined' && document.readyState) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initContentScript);
+    } else {
+      initContentScript();
+    }
   } else {
+    // Fallback when document is not available
     initContentScript();
   }
 }
 
 function initContentScript(): void {
   console.log('BMad Link Content Script 初始化');
-  
+
   // 向Service Worker发送ping消息测试通信
-  chrome.runtime.sendMessage({ action: 'ping' }, (response) => {
-    if (chrome.runtime.lastError) {
-      console.error('通信失败:', chrome.runtime.lastError);
-    } else {
-      console.log('Service Worker 响应:', response);
-    }
-  });
+  if (typeof chrome !== 'undefined' && chrome.runtime) {
+    chrome.runtime.sendMessage({ action: 'ping' }, (response) => {
+      if (chrome.runtime.lastError) {
+        console.error('通信失败:', chrome.runtime.lastError);
+      } else {
+        console.log('Service Worker 响应:', response);
+      }
+    });
+  }
 }
 
 describe('Content Script Unit Tests', () => {
@@ -66,15 +77,15 @@ describe('Content Script Unit Tests', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    
+
     // Mock console methods
     consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    
+
     // Reset DOM state
     mockDocument.readyState = 'loading';
     mockWindow.location.href = 'https://example.com';
-    
+
     // Mock chrome API responses
     mockChromeRuntime.sendMessage.mockImplementation((message, callback) => {
       if (callback) {
@@ -90,7 +101,7 @@ describe('Content Script Unit Tests', () => {
   describe('Content Script Initialization', () => {
     it('should log content script loading with URL', () => {
       loadContentScript();
-      
+
       expect(consoleLogSpy).toHaveBeenCalledWith(
         'BMad Link Content Script 加载完成',
         'https://example.com'
@@ -99,9 +110,9 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle different page URLs', () => {
       mockWindow.location.href = 'https://google.com';
-      
+
       loadContentScript();
-      
+
       expect(consoleLogSpy).toHaveBeenCalledWith(
         'BMad Link Content Script 加载完成',
         'https://google.com'
@@ -110,9 +121,9 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle complex URLs', () => {
       mockWindow.location.href = 'https://example.com/path?query=value#fragment';
-      
+
       loadContentScript();
-      
+
       expect(consoleLogSpy).toHaveBeenCalledWith(
         'BMad Link Content Script 加载完成',
         'https://example.com/path?query=value#fragment'
@@ -123,9 +134,9 @@ describe('Content Script Unit Tests', () => {
   describe('DOM Ready State Handling', () => {
     it('should add DOMContentLoaded listener when document is loading', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       expect(mockDocument.addEventListener).toHaveBeenCalledWith(
         'DOMContentLoaded',
         expect.any(Function)
@@ -134,31 +145,31 @@ describe('Content Script Unit Tests', () => {
 
     it('should call initContentScript directly when document is already loaded', () => {
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       expect(mockDocument.addEventListener).not.toHaveBeenCalled();
       expect(consoleLogSpy).toHaveBeenCalledWith('BMad Link Content Script 初始化');
     });
 
     it('should handle interactive ready state', () => {
       mockDocument.readyState = 'interactive';
-      
+
       loadContentScript();
-      
+
       expect(mockDocument.addEventListener).not.toHaveBeenCalled();
       expect(consoleLogSpy).toHaveBeenCalledWith('BMad Link Content Script 初始化');
     });
 
     it('should test all possible ready states', () => {
       const readyStates = ['loading', 'interactive', 'complete'];
-      
-      readyStates.forEach(state => {
+
+      readyStates.forEach((state) => {
         vi.clearAllMocks();
         mockDocument.readyState = state;
-        
+
         loadContentScript();
-        
+
         if (state === 'loading') {
           expect(mockDocument.addEventListener).toHaveBeenCalled();
         } else {
@@ -171,25 +182,25 @@ describe('Content Script Unit Tests', () => {
   describe('DOM Content Loaded Handler', () => {
     it('should call initContentScript when DOMContentLoaded fires', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       // Get the DOMContentLoaded listener
       const domContentLoadedListener = mockDocument.addEventListener.mock.calls[0][1];
-      
+
       // Simulate DOMContentLoaded event
       domContentLoadedListener();
-      
+
       expect(consoleLogSpy).toHaveBeenCalledWith('BMad Link Content Script 初始化');
     });
 
     it('should handle DOMContentLoaded event errors gracefully', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       const domContentLoadedListener = mockDocument.addEventListener.mock.calls[0][1];
-      
+
       // Simulate error during DOMContentLoaded
       expect(() => {
         domContentLoadedListener();
@@ -198,16 +209,16 @@ describe('Content Script Unit Tests', () => {
 
     it('should only initialize once when DOM loads', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       const domContentLoadedListener = mockDocument.addEventListener.mock.calls[0][1];
-      
+
       // Fire DOMContentLoaded multiple times
       domContentLoadedListener();
       domContentLoadedListener();
       domContentLoadedListener();
-      
+
       // Should initialize each time (current implementation)
       expect(consoleLogSpy).toHaveBeenCalledWith('BMad Link Content Script 初始化');
     });
@@ -216,9 +227,9 @@ describe('Content Script Unit Tests', () => {
   describe('Service Worker Communication', () => {
     it('should send ping message to service worker', () => {
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       expect(mockChromeRuntime.sendMessage).toHaveBeenCalledWith(
         { action: 'ping' },
         expect.any(Function)
@@ -227,15 +238,15 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle successful service worker response', () => {
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       expect(consoleLogSpy).toHaveBeenCalledWith('Service Worker 响应:', { status: 'pong' });
     });
 
     it('should handle service worker communication errors', () => {
       mockDocument.readyState = 'complete';
-      
+
       // Mock runtime error
       mockChromeRuntime.lastError = new Error('Connection failed');
       mockChromeRuntime.sendMessage.mockImplementationOnce((message, callback) => {
@@ -243,51 +254,43 @@ describe('Content Script Unit Tests', () => {
           callback(null);
         }
       });
-      
+
       loadContentScript();
-      
+
       expect(consoleErrorSpy).toHaveBeenCalledWith('通信失败:', mockChromeRuntime.lastError);
     });
 
     it('should handle service worker timeout', () => {
       mockDocument.readyState = 'complete';
-      
+
       // Mock timeout scenario
       mockChromeRuntime.sendMessage.mockImplementationOnce((message, callback) => {
         if (callback) {
           setTimeout(() => callback(null), 100);
         }
       });
-      
+
       loadContentScript();
-      
+
       // Should handle async response gracefully
       expect(mockChromeRuntime.sendMessage).toHaveBeenCalled();
     });
 
     it('should handle malformed service worker responses', () => {
       mockDocument.readyState = 'complete';
-      
-      const malformedResponses = [
-        null,
-        undefined,
-        '',
-        'invalid',
-        123,
-        [],
-        {}
-      ];
-      
-      malformedResponses.forEach(response => {
+
+      const malformedResponses = [null, undefined, '', 'invalid', 123, [], {}];
+
+      malformedResponses.forEach((response) => {
         vi.clearAllMocks();
         mockChromeRuntime.sendMessage.mockImplementationOnce((message, callback) => {
           if (callback) {
             callback(response);
           }
         });
-        
+
         loadContentScript();
-        
+
         expect(consoleLogSpy).toHaveBeenCalledWith('Service Worker 响应:', response);
       });
     });
@@ -296,9 +299,9 @@ describe('Content Script Unit Tests', () => {
   describe('Message Content Validation', () => {
     it('should send correctly formatted ping message', () => {
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       expect(mockChromeRuntime.sendMessage).toHaveBeenCalledWith(
         { action: 'ping' },
         expect.any(Function)
@@ -307,10 +310,10 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle different message types', () => {
       mockDocument.readyState = 'complete';
-      
+
       // Test that the current implementation only sends ping
       loadContentScript();
-      
+
       expect(mockChromeRuntime.sendMessage).toHaveBeenCalledWith(
         expect.objectContaining({ action: 'ping' }),
         expect.any(Function)
@@ -321,36 +324,36 @@ describe('Content Script Unit Tests', () => {
   describe('Error Handling', () => {
     it('should handle chrome runtime unavailability', () => {
       const originalChrome = (global as any).chrome;
-      delete (global as any).chrome;
-      
+      (global as any).chrome = undefined;
+
       mockDocument.readyState = 'complete';
-      
+
       expect(() => {
         loadContentScript();
       }).not.toThrow();
-      
+
       (global as any).chrome = originalChrome;
     });
 
     it('should handle document unavailability', () => {
       const originalDocument = (global as any).document;
-      delete (global as any).document;
-      
+      (global as any).document = undefined;
+
       expect(() => {
         loadContentScript();
       }).not.toThrow();
-      
+
       (global as any).document = originalDocument;
     });
 
     it('should handle window unavailability', () => {
       const originalWindow = (global as any).window;
-      delete (global as any).window;
-      
+      (global as any).window = undefined;
+
       expect(() => {
         loadContentScript();
       }).not.toThrow();
-      
+
       (global as any).window = originalWindow;
     });
 
@@ -358,9 +361,9 @@ describe('Content Script Unit Tests', () => {
       vi.spyOn(console, 'log').mockImplementationOnce(() => {
         throw new Error('Console logging failed');
       });
-      
+
       mockDocument.readyState = 'complete';
-      
+
       expect(() => {
         loadContentScript();
       }).not.toThrow();
@@ -371,7 +374,7 @@ describe('Content Script Unit Tests', () => {
       mockDocument.addEventListener.mockImplementationOnce(() => {
         throw new Error('Event listener failed');
       });
-      
+
       expect(() => {
         loadContentScript();
       }).not.toThrow();
@@ -383,16 +386,16 @@ describe('Content Script Unit Tests', () => {
       const browsers = [
         { name: 'Chrome', version: '120.0.0.0' },
         { name: 'Firefox', version: '115.0.0.0' },
-        { name: 'Edge', version: '119.0.0.0' }
+        { name: 'Edge', version: '119.0.0.0' },
       ];
-      
-      browsers.forEach(browser => {
+
+      browsers.forEach((browser) => {
         vi.clearAllMocks();
         mockDocument.readyState = 'complete';
-        
+
         // Simulate different browser environments
         loadContentScript();
-        
+
         expect(consoleLogSpy).toHaveBeenCalledWith(
           'BMad Link Content Script 加载完成',
           'https://example.com'
@@ -402,13 +405,13 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle different document modes', () => {
       const docModes = ['quirks', 'almost standards', 'standards'];
-      
-      docModes.forEach(mode => {
+
+      docModes.forEach((mode) => {
         vi.clearAllMocks();
         mockDocument.readyState = 'complete';
-        
+
         loadContentScript();
-        
+
         expect(consoleLogSpy).toHaveBeenCalledWith('BMad Link Content Script 初始化');
       });
     });
@@ -417,18 +420,18 @@ describe('Content Script Unit Tests', () => {
   describe('Performance Considerations', () => {
     it('should minimize DOM operations', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       // Should only add one event listener
       expect(mockDocument.addEventListener).toHaveBeenCalledTimes(1);
     });
 
     it('should avoid memory leaks', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       // The content script should not create circular references
       expect(() => {
         loadContentScript();
@@ -437,14 +440,14 @@ describe('Content Script Unit Tests', () => {
 
     it('should use efficient event handling', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       const domContentLoadedListener = mockDocument.addEventListener.mock.calls[0][1];
-      
+
       // Event listener should be a function
       expect(typeof domContentLoadedListener).toBe('function');
-      
+
       // Should be lightweight
       expect(domContentLoadedListener.toString().length).toBeLessThan(1000);
     });
@@ -453,9 +456,9 @@ describe('Content Script Unit Tests', () => {
   describe('Security Considerations', () => {
     it('should not access sensitive DOM elements', () => {
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       // Should not access sensitive elements like password fields
       expect(mockDocument.querySelector).not.toHaveBeenCalled();
       expect(mockDocument.getElementsByTagName).not.toHaveBeenCalled();
@@ -463,18 +466,18 @@ describe('Content Script Unit Tests', () => {
 
     it('should not modify page content', () => {
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       // Should not modify DOM
       expect(mockDocument.createElement).not.toHaveBeenCalled();
     });
 
     it('should handle cross-origin security restrictions', () => {
       mockWindow.location.href = 'https://malicious.com';
-      
+
       loadContentScript();
-      
+
       // Should still work regardless of origin
       expect(consoleLogSpy).toHaveBeenCalledWith(
         'BMad Link Content Script 加载完成',
@@ -486,9 +489,9 @@ describe('Content Script Unit Tests', () => {
   describe('Integration Testing', () => {
     it('should integrate properly with Chrome extension APIs', () => {
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       // Should use chrome.runtime.sendMessage correctly
       expect(mockChromeRuntime.sendMessage).toHaveBeenCalledWith(
         { action: 'ping' },
@@ -498,7 +501,7 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle service worker restart scenarios', () => {
       mockDocument.readyState = 'complete';
-      
+
       // Simulate service worker restart
       mockChromeRuntime.sendMessage.mockImplementationOnce((message, callback) => {
         if (callback) {
@@ -509,27 +512,24 @@ describe('Content Script Unit Tests', () => {
           }, 100);
         }
       });
-      
+
       loadContentScript();
-      
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        '通信失败:',
-        expect.any(Error)
-      );
+
+      expect(consoleErrorSpy).toHaveBeenCalledWith('通信失败:', expect.any(Error));
     });
 
     it('should handle extension reload scenarios', () => {
       mockDocument.readyState = 'complete';
-      
+
       // Simulate extension reload
       loadContentScript();
-      
+
       // Clear and re-evaluate to simulate reload
       vi.clearAllMocks();
       mockDocument.readyState = 'complete';
-      
+
       loadContentScript();
-      
+
       expect(consoleLogSpy).toHaveBeenCalledWith('BMad Link Content Script 初始化');
     });
   });
@@ -537,19 +537,19 @@ describe('Content Script Unit Tests', () => {
   describe('Content Script Lifecycle', () => {
     it('should handle content script injection timing', () => {
       const injectionTimings = ['document_start', 'document_end', 'document_idle'];
-      
-      injectionTimings.forEach(timing => {
+
+      injectionTimings.forEach((timing) => {
         vi.clearAllMocks();
-        
+
         // Simulate different injection timings
         if (timing === 'document_start') {
           mockDocument.readyState = 'loading';
         } else {
           mockDocument.readyState = 'complete';
         }
-        
+
         loadContentScript();
-        
+
         if (timing === 'document_start') {
           expect(mockDocument.addEventListener).toHaveBeenCalled();
         } else {
@@ -560,9 +560,9 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle content script removal', () => {
       mockDocument.readyState = 'loading';
-      
+
       loadContentScript();
-      
+
       // Simulate content script removal
       // The script should clean up resources
       expect(() => {
@@ -573,12 +573,12 @@ describe('Content Script Unit Tests', () => {
 
     it('should handle multiple content script instances', () => {
       mockDocument.readyState = 'complete';
-      
+
       // Simulate multiple instances
       loadContentScript();
       loadContentScript();
       loadContentScript();
-      
+
       // Each instance should initialize independently
       expect(consoleLogSpy).toHaveBeenCalledWith('BMad Link Content Script 初始化');
     });

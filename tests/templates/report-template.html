@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMad Link - 测试报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #a1a1aa;
+            font-size: 1.1rem;
+        }
+        
+        .timestamp {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid;
+            transition: transform 0.2s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .metric-card.success { border-left-color: #22c55e; }
+        .metric-card.danger { border-left-color: #ef4444; }
+        .metric-card.warning { border-left-color: #f59e0b; }
+        .metric-card.info { border-left-color: #3b82f6; }
+        
+        .metric-card h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+        
+        .metric-card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .metric-card .percentage {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+        
+        .test-modules {
+            margin-bottom: 40px;
+        }
+        
+        .module {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .module-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        
+        .module-header h3 {
+            color: #f3f4f6;
+        }
+        
+        .module-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-pass { background: #22c55e; color: white; }
+        .status-fail { background: #ef4444; color: white; }
+        .status-partial { background: #f59e0b; color: white; }
+        
+        .module-details {
+            padding: 20px;
+            display: none;
+        }
+        
+        .module-details.expanded {
+            display: block;
+        }
+        
+        .test-list {
+            list-style: none;
+        }
+        
+        .test-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .test-status {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .test-status.pass { background: #22c55e; }
+        .test-status.fail { background: #ef4444; }
+        .test-status.skip { background: #6b7280; }
+        
+        .test-name {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        .test-duration {
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+        
+        .coverage-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .coverage-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .coverage-item h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+        
+        .coverage-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .coverage-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .coverage-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+        
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .toggle-btn:hover {
+            color: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔖 BMad Link</h1>
+            <div class="subtitle">智能书签管理器 - 测试报告</div>
+        </div>
+        
+        <div class="timestamp">
+            生成时间: <span id="timestamp">{{TIMESTAMP}}</span>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card success">
+                <h3>通过测试</h3>
+                <div class="value" id="passed-tests">{{PASSED_TESTS}}</div>
+                <div class="percentage">{{PASS_PERCENTAGE}}%</div>
+            </div>
+            
+            <div class="metric-card danger">
+                <h3>失败测试</h3>
+                <div class="value" id="failed-tests">{{FAILED_TESTS}}</div>
+                <div class="percentage">{{FAIL_PERCENTAGE}}%</div>
+            </div>
+            
+            <div class="metric-card info">
+                <h3>总测试数</h3>
+                <div class="value" id="total-tests">{{TOTAL_TESTS}}</div>
+                <div class="percentage">100%</div>
+            </div>
+            
+            <div class="metric-card warning">
+                <h3>执行时间</h3>
+                <div class="value" id="duration">{{DURATION}}</div>
+                <div class="percentage">秒</div>
+            </div>
+        </div>
+        
+        <section class="test-modules">
+            <h2 style="margin-bottom: 20px;">测试模块</h2>
+            <!-- 测试模块将由JavaScript动态生成 -->
+            <div id="test-modules-container">
+                {{TEST_MODULES}}
+            </div>
+        </section>
+        
+        <section class="coverage-section">
+            <h2 style="margin-bottom: 20px;">代码覆盖率</h2>
+            <div class="coverage-grid">
+                <div class="coverage-item">
+                    <h4>语句覆盖率</h4>
+                    <div class="coverage-value" id="stmt-coverage">{{STMT_COVERAGE}}%</div>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: {{STMT_COVERAGE}}%; background: #22c55e;"></div>
+                    </div>
+                </div>
+                
+                <div class="coverage-item">
+                    <h4>分支覆盖率</h4>
+                    <div class="coverage-value" id="branch-coverage">{{BRANCH_COVERAGE}}%</div>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: {{BRANCH_COVERAGE}}%; background: #3b82f6;"></div>
+                    </div>
+                </div>
+                
+                <div class="coverage-item">
+                    <h4>函数覆盖率</h4>
+                    <div class="coverage-value" id="func-coverage">{{FUNC_COVERAGE}}%</div>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: {{FUNC_COVERAGE}}%; background: #8b5cf6;"></div>
+                    </div>
+                </div>
+                
+                <div class="coverage-item">
+                    <h4>行覆盖率</h4>
+                    <div class="coverage-value" id="line-coverage">{{LINE_COVERAGE}}%</div>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: {{LINE_COVERAGE}}%; background: #f59e0b;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="footer">
+            <p>🤖 由 <strong>BMad Link QA</strong> 自动生成 | Powered by Vitest</p>
+        </div>
+    </div>
+    
+    <script>
+        // 模块折叠/展开功能
+        document.querySelectorAll('.module-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const details = header.nextElementSibling;
+                details.classList.toggle('expanded');
+            });
+        });
+        
+        // 动态更新时间戳
+        document.getElementById('timestamp').textContent = new Date().toLocaleString('zh-CN');
+    </script>
+</body>
+</html>
